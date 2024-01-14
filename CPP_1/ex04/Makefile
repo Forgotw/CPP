@@ -6,7 +6,7 @@
 #    By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/13 15:42:59 by lsohler           #+#    #+#              #
-#    Updated: 2024/01/13 15:43:14 by lsohler          ###   ########.fr        #
+#    Updated: 2024/01/14 14:28:37 by lsohler          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,12 @@ INCLUDES = -I $(CURDIR)
 
 SRC = \
 		main.cpp\
+		Replace.cpp\
 
 #SRC_DIR = $(addprefix src/, $(SRC))
 OBJ = ${SRC:.cpp=.o}
 
-NAME = Weapon
+NAME = Replace
 
 #INCLUDES = -Iinclude/
 

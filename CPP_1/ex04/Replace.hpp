@@ -6,7 +6,7 @@
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 15:44:22 by lsohler           #+#    #+#             */
-/*   Updated: 2024/01/13 17:07:45 by lsohler          ###   ########.fr       */
+/*   Updated: 2024/01/14 15:40:15 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,14 @@ public:
 
 	Replace(void);
 	~Replace(void);
-	void	enterParam(std::string filename, std::string tofind, std::string toReplace);
-	void	doReplace(void);
-	bool	checkInputFile(std::ifstream file);
-	void	newOutputFile(std::ofstream newFile, std::string filename);
+	void	replaceInNewFile(std::string fileName, std::string toFind, std::string toReplace);
 
 private:
-	std::string		_Filename;
-	std::string		_toFind;
-	std::string		_toReplace;
+
+	std::string	doReplace(std::ifstream& originalFile, std::string toFind, std::string toReplace);
+	bool	newOutputFile(std::string filename, std::string fileContent);
+	bool	checkInputFile(std::ifstream& file, std::string filename);
+	bool	checkArguments(std::string fileName, std::string toFind, std::string toReplace);
 
 
 };
