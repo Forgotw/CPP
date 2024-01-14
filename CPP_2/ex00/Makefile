@@ -6,7 +6,7 @@
 #    By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/13 15:42:59 by lsohler           #+#    #+#              #
-#    Updated: 2024/01/14 17:30:00 by lsohler          ###   ########.fr        #
+#    Updated: 2024/01/14 17:31:07 by lsohler          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,12 @@ INCLUDES = -I $(CURDIR)
 
 SRC = \
 		main.cpp\
-		Harl.cpp\
+		Fixed.cpp\
 
 #SRC_DIR = $(addprefix src/, $(SRC))
 OBJ = ${SRC:.cpp=.o}
 
-NAME = harlFilter
+NAME = Fixed
 
 #INCLUDES = -Iinclude/
 
