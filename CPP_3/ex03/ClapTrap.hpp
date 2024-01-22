@@ -6,7 +6,7 @@
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 09:20:50 by lsohler@stu       #+#    #+#             */
-/*   Updated: 2024/01/22 14:28:25 by lsohler          ###   ########.fr       */
+/*   Updated: 2024/01/22 16:24:34 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,11 @@ public:
 	void	attack(const std::string& target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
+	void	displayInfo(void);
 
 
-private:
+protected:
+
 	std::string		_Name;
 	unsigned int	_HitPoints;
 	unsigned int	_EenergyPoints;

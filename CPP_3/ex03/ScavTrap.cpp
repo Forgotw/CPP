@@ -6,17 +6,17 @@
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:18:44 by lsohler@stu       #+#    #+#             */
-/*   Updated: 2024/01/22 15:32:03 by lsohler          ###   ########.fr       */
+/*   Updated: 2024/01/22 16:55:30 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
-	this->_HitPoints = 100;
-	this->_EenergyPoints = 50;
-	this->_AttackDamage = 20;
 	this->_guardSate = 0;
+	this->_HitPoints = _HP;
+	this->_EenergyPoints = _EP;
+	this->_AttackDamage = _AD;
 	std::cout << "ScavTrap: Constructor called." << std::endl;
 }
 

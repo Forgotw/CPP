@@ -3,16 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsohler@student.42.fr <lsohler>            +#+  +:+       +#+        */
+/*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 09:22:01 by lsohler@stu       #+#    #+#             */
-/*   Updated: 2024/01/19 11:06:16 by lsohler@stu      ###   ########.fr       */
+/*   Updated: 2024/01/22 14:28:12 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(void) : _Name("DefaultClapTrap"), _HitPoints(10), _EenergyPoints(0), _AttackDamage(0) {
+	std::cout << "ClapTrap: Default constructor called" << std::endl;
+}
+
+ClapTrap::ClapTrap(std::string name) : _Name(name), _HitPoints(10), _EenergyPoints(0), _AttackDamage(0) {
 	std::cout << "ClapTrap: Default constructor called" << std::endl;
 }
 
