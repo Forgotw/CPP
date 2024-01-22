@@ -6,7 +6,7 @@
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 17:36:32 by lsohler           #+#    #+#             */
-/*   Updated: 2024/01/16 13:04:03 by lsohler          ###   ########.fr       */
+/*   Updated: 2024/01/22 11:23:34 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,61 +90,35 @@ Fixed	sign(Point const v1, Point const v2, Point const v3) {
 	return ((v1.getX() - v3.getX()) * (v2.getY() - v3.getY())) - ((v2.getX() - v3.getX()) * (v1.getY() - v3.getY()));
 }
 
+// bool bsp( Point const a, Point const b, Point const c, Point const point) {
+// 	Fixed d1, d2, d3;
+// 	bool has_neg, has_pos;
+
+// 	d1 = sign(point, a, b);
+// 	d2 = sign(point, b, c);
+// 	d3 = sign(point, c, a);
+
+// 	if (d1 == 0 || d2 == 0 || d3 == 0)
+// 		return (false);
+// 	has_neg = (d1 < 0) || (d2 < 0) || (d3 < 0);
+// 	has_pos = (d1 > 0) || (d2 > 0) || (d3 > 0);
+
+// 	return !(has_neg && has_pos);
+// }
+
 bool bsp( Point const a, Point const b, Point const c, Point const point) {
-//	Point ab = b - a;
-//	Point ac = c - a;
-//	Point normal = ab.normal();
+	Fixed a1, a2, a3, at;
 
-//	Point pa = a - point;
-//	Point pb = b - point;
-//	Point pc = c - point;
-//
+	a1 = triangleArea(point, a, b);
+	a2 = triangleArea(point, b, c);
+	a3 = triangleArea(point, c, a);
+	at = triangleArea(a, b, c);
 
-//	Fixed abpa = ab.cross(pa);
-//	Fixed bcpb = ac.cross(pb);
-//	Fixed capc = ab.cross(pc);
-//	Fixed x = normal.getX();
-//	Fixed y = normal.getY();
-//
-
-//	Fixed abpax = abpa * x;
-//	Fixed abpay = abpa * y;
-//	Fixed bcpbx = bcpb * x;
-//	Fixed bcpby = bcpb * y;
-//	Fixed capcx = capc * x;
-//	Fixed capcy = capc * y;
-//
-//	if ((abpax + bcpbx + capcx >= 0) && (abpay + bcpby + capcy >= 0))
-//		return true;
-//	return false;
-//	Fixed total = triangleArea(a, b, c);
-	Fixed d1, d2, d3;
-	bool has_neg, has_pos;
-
-	d1 = sign(point, a, b);
-	d2 = sign(point, b, c);
-	d3 = sign(point, c, a);
-
-	has_neg = (d1 < 0) || (d2 < 0) || (d3 < 0);
-	has_pos = (d1 > 0) || (d2 > 0) || (d3 > 0);
-
-	return !(has_neg && has_pos);
-
-//	Fixed total = triangleArea(a, b, c);
-//	Fixed pba = triangleArea(point, b, a);
-//	Fixed pbc = triangleArea(point, b, c);
-//	Fixed pac = triangleArea(point, c, a);
-//
-//	std::cout << "total: " << total << std::endl;
-//	std::cout << "pba: " << pba << std::endl;
-//	std::cout << "pbc: " << pbc << std::endl;
-//	std::cout << "pac: " << pac << std::endl;
-//	std::cout << "total calc: " << pba + pbc + pac << std::endl;
-//
-//	if (pba + pbc + pac > total)
-//		return false;
-//	else
-//		return true;
+	if (a1 == 0 || a2 == 0 || a3 == 0)
+		return false;
+	if (a1 + a2 + a3 == at)
+		return true;
+	return false;
 }
 
 /*
