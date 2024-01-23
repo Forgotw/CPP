@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/23 11:56:16 by lsohler           #+#    #+#             */
-/*   Updated: 2024/01/23 12:48:26 by lsohler          ###   ########.fr       */
+/*   Created: 2024/01/23 13:17:01 by lsohler           #+#    #+#             */
+/*   Updated: 2024/01/23 17:20:27 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,28 @@
 
 /*
 **==========================
-**		Includes
+**		Include
 **==========================
 */
-#include "Animal.hpp"
+
+#include "Colors.h"
+#include <string>
 
 
-class Cat : public Animal {
+class Brain {
 
 	private:
+		std::string	ideas[100];
 
 	public:
-		Cat();
-		Cat(Cat const &other);
-		~Cat();
+		Brain();
+		Brain(Brain const &other);
+		~Brain();
 
-		Cat &operator=(Cat const &other);
-		void makeSound(void);
+		Brain	&operator=(Brain const &other);
+		void	think(void);
+		std::string	getIdeas(int i);
+		void	setIdeas(std::string idea, int i);
+		void	resetIdeas(void);
+
 };

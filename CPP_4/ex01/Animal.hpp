@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/23 11:56:16 by lsohler           #+#    #+#             */
-/*   Updated: 2024/01/23 12:48:26 by lsohler          ###   ########.fr       */
+/*   Created: 2024/01/22 17:48:51 by lsohler           #+#    #+#             */
+/*   Updated: 2024/01/23 14:07:49 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,24 @@
 
 /*
 **==========================
-**		Includes
+**		Include
 **==========================
 */
-#include "Animal.hpp"
+#include <iostream>
+#include <string>
 
+class Animal {
 
-class Cat : public Animal {
-
-	private:
+	protected:
+		std::string	type;
 
 	public:
-		Cat();
-		Cat(Cat const &other);
-		~Cat();
+		Animal();
+		Animal(Animal const &other);
+		~Animal();
+		Animal &operator=(Animal const &other);
 
-		Cat &operator=(Cat const &other);
-		void makeSound(void);
+		std::string	getType(void) const;
+		virtual void makeSound(void);
+
 };

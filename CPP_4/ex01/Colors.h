@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Colors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/23 11:56:16 by lsohler           #+#    #+#             */
-/*   Updated: 2024/01/23 12:48:26 by lsohler          ###   ########.fr       */
+/*   Created: 2024/01/23 14:08:35 by lsohler           #+#    #+#             */
+/*   Updated: 2024/01/23 14:09:50 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef COLORS_H
+# define COLORS_H
 
-/*
-**==========================
-**		Includes
-**==========================
-*/
-#include "Animal.hpp"
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define BLUE    "\033[34m"
+#define MAGENTA "\033[35m"
+#define CYAN    "\033[36m"
+#define WHITE   "\033[37m"
 
-
-class Cat : public Animal {
-
-	private:
-
-	public:
-		Cat();
-		Cat(Cat const &other);
-		~Cat();
-
-		Cat &operator=(Cat const &other);
-		void makeSound(void);
-};
+#endif

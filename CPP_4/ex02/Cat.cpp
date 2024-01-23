@@ -6,7 +6,7 @@
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 11:56:11 by lsohler           #+#    #+#             */
-/*   Updated: 2024/01/23 12:49:37 by lsohler          ###   ########.fr       */
+/*   Updated: 2024/01/23 17:18:46 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,40 @@
 
 Cat::Cat() {
 	this->type = "Cat";
-	std::cout << "Cat: Default Constructor called." << std::endl;
+	this->catBrain = new Brain();
+	std::cout << CAT DEFCONS << std::endl;
 }
 
 Cat::Cat(Cat const &other) {
 	this->type = other.getType();
-	std::cout << "Cat: Copy Constructor called." << std::endl;
+	this->catBrain = new Brain();
+	for (int i = 0; i < 100; i++) {
+		// this->catBrain[i] = other.getBrain().getIdeas(i);
+		this->catBrain->setIdeas(other.getBrain().getIdeas(i), i);
+	}
+	std::cout << CAT COPYCONS << std::endl;
 }
 
 Cat::~Cat() {
-	std::cout << "Cat: Default Destructor called." << std::endl;
+	delete this->catBrain;
+	std::cout << CAT DEFDES << std::endl;
 
 }
 
 Cat &Cat::operator=(Cat const &other) {
-	std::cout << "Cat: Operator Constructor called." << std::endl;
+	std::cout << CAT OPECONS << std::endl;
 	if (this != &other) {
-		this->type = other.getType();
+		// this->type = other.getType();
+		// this->catBrain = new Brain();
+		*this = other;
 	}
 	return(*this);
 }
 
-void	Cat::makeSound() {
+void	Cat::makeSound() const {
 	std::cout << "Miaou" << std::endl;
+}
+
+Brain&	Cat::getBrain(void) const {
+	return (*this->catBrain);
 }
