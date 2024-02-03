@@ -6,7 +6,7 @@
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 09:20:50 by lsohler@stu       #+#    #+#             */
-/*   Updated: 2024/01/22 14:28:25 by lsohler          ###   ########.fr       */
+/*   Updated: 2024/02/02 17:37:26 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,17 @@ public:
 	ClapTrap(void);
 	ClapTrap(std::string name);
 	ClapTrap(std::string name, unsigned int hp, unsigned int ep, unsigned int ad);
-	// ClapTrap(const ClapTrap& copy);
-	// ClapTrap& operator=(const ClapTrap& assignation);
+	ClapTrap(const ClapTrap& copy);
+	ClapTrap& operator=(const ClapTrap& assignation);
 	~ClapTrap(void);
 	void	attack(const std::string& target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
 
+	std::string	getName(void) const ;
+	unsigned int	getHP(void) const ;
+	unsigned int	getEP(void) const ;
+	unsigned int	getAD(void) const ;
 
 private:
 	std::string		_Name;

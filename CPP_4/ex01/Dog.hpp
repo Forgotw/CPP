@@ -6,7 +6,7 @@
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 11:56:22 by lsohler           #+#    #+#             */
-/*   Updated: 2024/01/23 14:19:10 by lsohler          ###   ########.fr       */
+/*   Updated: 2024/02/02 12:45:41 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ class Dog : public Animal {
 
 		Dog &operator=(Dog const &other);
 		void makeSound(void);
-		Brain&	getBrain(void);
+		Brain&	getBrain(void) const ;
 };

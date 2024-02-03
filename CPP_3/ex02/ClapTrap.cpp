@@ -6,7 +6,7 @@
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 09:22:01 by lsohler@stu       #+#    #+#             */
-/*   Updated: 2024/01/23 12:51:54 by lsohler          ###   ########.fr       */
+/*   Updated: 2024/02/02 17:45:09 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,24 @@ ClapTrap::ClapTrap(std::string name, unsigned int hp, unsigned int ep, unsigned 
 	std::cout << "ClapTrap: Constructor called" << std::endl;
 }
 
-// ClapTrap::ClapTrap(const ClapTrap& copy) {
-// 	std::cout << "ClapTrap: Copy constructor called" << std::endl;
-// }
+ClapTrap::ClapTrap(const ClapTrap& copy) {
+	_Name = copy.getName();
+	_HitPoints = copy.getHP();
+	_EenergyPoints = copy.getEP();
+	_AttackDamage = copy.getAD();
+	std::cout << "ClapTrap: Copy constructor called" << std::endl;
+}
 
-// ClapTrap& ClapTrap::operator=(const ClapTrap& affectation) {
-// 	std::cout << "ClapTrap: Copy assignment operator called" << std::endl;
-// 	return *this;
-// }
+ClapTrap& ClapTrap::operator=(const ClapTrap& affectation) {
+	if (this != &affectation) {
+		_Name = affectation.getName();
+		_HitPoints = affectation.getHP();
+		_EenergyPoints = affectation.getEP();
+		_AttackDamage = affectation.getAD();
+	}
+	std::cout << "ClapTrap: Copy assignment operator called" << std::endl;
+	return *this;
+}
 
 ClapTrap::~ClapTrap(void) {
 	std::cout << "ClapTrap: Destructor called" << std::endl;
@@ -70,4 +80,20 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 
 void	ClapTrap::displayInfo(void) {
 	std::cout << this->_Name << ": HP:" << this->_HitPoints << " EP:" << this->_EenergyPoints << " AD: " << this->_AttackDamage << std::endl;
+}
+
+std::string	ClapTrap::getName(void) const {
+	return (_Name);
+}
+
+unsigned int	ClapTrap::getHP(void) const {
+	return (_HitPoints);
+}
+
+unsigned int	ClapTrap::getEP(void) const {
+	return (_EenergyPoints);
+}
+
+unsigned int	ClapTrap::getAD(void) const {
+	return (_AttackDamage);
 }

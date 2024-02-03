@@ -6,7 +6,7 @@
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 11:56:11 by lsohler           #+#    #+#             */
-/*   Updated: 2024/01/23 17:18:46 by lsohler          ###   ########.fr       */
+/*   Updated: 2024/02/02 12:32:36 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ Cat::Cat(Cat const &other) {
 	this->type = other.getType();
 	this->catBrain = new Brain();
 	for (int i = 0; i < 100; i++) {
-		// this->catBrain[i] = other.getBrain().getIdeas(i);
 		this->catBrain->setIdeas(other.getBrain().getIdeas(i), i);
 	}
 	std::cout << CAT COPYCONS << std::endl;
@@ -37,9 +36,11 @@ Cat::~Cat() {
 Cat &Cat::operator=(Cat const &other) {
 	std::cout << CAT OPECONS << std::endl;
 	if (this != &other) {
-		// this->type = other.getType();
-		// this->catBrain = new Brain();
-		*this = other;
+		this->type = other.getType();
+		this->catBrain = new Brain();
+		for (int i = 0; i < 100; i++) {
+			this->catBrain->setIdeas(other.getBrain().getIdeas(i), i);
+		}
 	}
 	return(*this);
 }

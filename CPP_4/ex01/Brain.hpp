@@ -6,7 +6,7 @@
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 13:17:01 by lsohler           #+#    #+#             */
-/*   Updated: 2024/01/23 14:09:22 by lsohler          ###   ########.fr       */
+/*   Updated: 2024/02/02 12:33:31 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,8 @@ class Brain {
 
 		Brain	&operator=(Brain const &other);
 		void	think(void);
+		std::string	getIdeas(int i);
+		void	setIdeas(std::string idea, int i);
+		void	resetIdeas(void);
 
 };

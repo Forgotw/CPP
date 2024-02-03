@@ -6,7 +6,7 @@
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 10:47:11 by lsohler@stu       #+#    #+#             */
-/*   Updated: 2024/01/22 16:43:00 by lsohler          ###   ########.fr       */
+/*   Updated: 2024/02/03 11:33:19 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(void) {
 	ClapTrap	george("George CLAP");
 	ScavTrap	bill("Bill SCAV");
 	FragTrap	henry("Henry FRAG");
-	DiamondTrap	rihana("Rihana Diamond");
+	DiamondTrap	rihana("Charlie Diamond");
 
 	george.displayInfo();
 	bill.displayInfo();

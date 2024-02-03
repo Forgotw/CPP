@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Scavtrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsohler@student.42.fr <lsohler>            +#+  +:+       +#+        */
+/*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:12:16 by lsohler@stu       #+#    #+#             */
-/*   Updated: 2024/01/19 11:42:33 by lsohler@stu      ###   ########.fr       */
+/*   Updated: 2024/02/02 17:51:59 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,19 @@
 class ScavTrap : public ClapTrap {
 
 public:
-
+	ScavTrap(void);
+	ScavTrap(const ScavTrap& copy);
 	ScavTrap(std::string name);
+	ScavTrap& operator=(const ScavTrap& assignation);
 	~ScavTrap(void);
 	void attack(const std::string& target);
 	void guardGate(void);
+
+	std::string		getName(void) const ;
+	unsigned int	getHP(void) const ;
+	unsigned int	getEP(void) const ;
+	unsigned int	getAD(void) const ;
+	unsigned int	getGS(void) const ;
 
 private:
 

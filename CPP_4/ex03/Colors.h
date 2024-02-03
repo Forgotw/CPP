@@ -6,12 +6,15 @@
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 14:08:35 by lsohler           #+#    #+#             */
-/*   Updated: 2024/01/23 19:22:43 by lsohler          ###   ########.fr       */
+/*   Updated: 2024/01/29 18:33:14 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COLORS_H
 # define COLORS_H
+
+#include <string>
+#include <iostream>
 
 #define RESET          "\033[0m"
 #define BOLD           "\033[1m"
@@ -60,13 +63,19 @@
 #define BGBRIGHTCYAN   "\033[106m"
 #define BGBRIGHTWHITE  "\033[107m"
 
-#define DEFCONS GREEN  " Default Constructor called." RESET
-#define COPYCONS CYAN " Copy Constructor called." RESET
+#define DEFCONS GREEN  "Default Constructor called." RESET
+#define COPYCONS CYAN "Copy Constructor called." RESET
 #define OPECONS MAGENTA "Operator Constructor called." RESET
 #define DEFDES RED "Default Destructor called." RESET
 
-#define AMATERIA BOLD WHITE "Materia: " RESET
+#define AMATERIA BOLD WHITE "AMateria: " RESET
 #define CHARACTER BOLD YELLOW "Character: " RESET
+#define MATERIASOURCE BOLD CYAN "MateriaSource: " RESET
+#define CURE BOLD MAGENTA "Cure: " RESET
+#define ICE BOLD BLUE "Ice: " RESET
 
+#define EQUIPED "Materia equiped at inventory slot: "
+#define INVENTORYFULL "Cannot equiped Materia invotry full."
+#define NOSPELL "No spell at inventory slot: "
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 13:16:33 by lsohler           #+#    #+#             */
-/*   Updated: 2024/01/23 14:22:27 by lsohler          ###   ########.fr       */
+/*   Updated: 2024/02/02 12:34:00 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,3 +145,16 @@ void	Brain::think(void) {
 	std::cout <<  YELLOW << this->ideas[index] << RESET << std::endl;
 }
 
+std::string Brain::getIdeas(int i) {
+	return (this->ideas[i]);
+}
+
+void	Brain::setIdeas(std::string idea, int i) {
+	this->ideas[i] = idea;
+}
+
+void	Brain::resetIdeas(void) {
+	for (int i = 0; i < 100; i++) {
+		this->ideas[i] = "My brain is emtpy";
+	}
+}

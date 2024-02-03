@@ -5,37 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/23 12:31:13 by lsohler           #+#    #+#             */
-/*   Updated: 2024/02/02 12:21:43 by lsohler          ###   ########.fr       */
+/*   Created: 2024/01/29 14:34:52 by lsohler           #+#    #+#             */
+/*   Updated: 2024/01/29 18:42:05 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "Brain.hpp"
+#include "Materia.hpp"
+#include "Character.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
+#include "MateriaSource.hpp"
 
-int main() {
-	std::srand(std::time(0));
-	Animal	A;
-	Cat		C;
-	Dog		D;
+int main()
+{
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
 
-	std::cout << std::endl;
-	A.makeSound();
+	ICharacter* me = new Character("me");
+	me(other);
+	
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
 
-	std::cout << std::endl;
-	C.makeSound();
-	C.getBrain().think();
-	std::cout << std::endl;
-	D.makeSound();
-	D.getBrain().think();
+	ICharacter* bob = new Character("bob");
 
-
-	std::cout << std::endl;
-	std::cout << "Type: " << A.getType() << std::endl;
-	std::cout << "Type: " << C.getType() << std::endl;
-	std::cout << "Type: " << D.getType() << std::endl;
-
-	std::cout << std::endl;
+	me->use(0, *bob);
+	me->use(1, *bob);
+	delete bob;
+	delete me;
+	delete src;
+	return 0;
 }

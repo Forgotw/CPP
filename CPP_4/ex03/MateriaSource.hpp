@@ -16,12 +16,14 @@ class IMateriaSource {
 
 class MateriaSource : public IMateriaSource {
 	private:
+		AMateria*	_materiaList[4];
 
 	public:
 		MateriaSource();
 		MateriaSource(MateriaSource const &other);
 		~MateriaSource();
-
 		MateriaSource &operator=(MateriaSource const &other);
 
+		void learnMateria(AMateria* other);
+		AMateria* createMateria(std::string const & type);
 };
