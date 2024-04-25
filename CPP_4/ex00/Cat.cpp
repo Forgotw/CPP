@@ -6,7 +6,7 @@
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 11:56:11 by lsohler           #+#    #+#             */
-/*   Updated: 2024/01/23 12:49:37 by lsohler          ###   ########.fr       */
+/*   Updated: 2024/02/05 16:21:47 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ Cat &Cat::operator=(Cat const &other) {
 	return(*this);
 }
 
-void	Cat::makeSound() {
+void	Cat::makeSound() const {
 	std::cout << "Miaou" << std::endl;
 }

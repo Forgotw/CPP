@@ -6,7 +6,7 @@
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 11:56:19 by lsohler           #+#    #+#             */
-/*   Updated: 2024/02/02 12:30:57 by lsohler          ###   ########.fr       */
+/*   Updated: 2024/02/09 14:53:20 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ Dog &Dog::operator=(Dog const &other) {
 	std::cout << DOG OPECONS << std::endl;
 	if (this != &other) {
 		this->type = other.getType();
+		if (this->dogBrain)
+			delete  this->dogBrain;
 		this->dogBrain = new Brain();
 		for (int i = 0; i < 100; i++) {
 			this->dogBrain->setIdeas(other.getBrain().getIdeas(i), i);

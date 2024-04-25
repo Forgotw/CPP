@@ -6,7 +6,7 @@
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 17:48:47 by lsohler           #+#    #+#             */
-/*   Updated: 2024/01/23 12:47:47 by lsohler          ###   ########.fr       */
+/*   Updated: 2024/02/05 16:21:42 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ std::string Animal::getType(void) const {
 	return (this->type);
 }
 
-void	Animal::makeSound(void) {
+void	Animal::makeSound(void) const {
 	std::cout << "Basic animal noise" << std::endl;
 }

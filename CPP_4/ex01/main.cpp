@@ -6,7 +6,7 @@
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 12:31:13 by lsohler           #+#    #+#             */
-/*   Updated: 2024/02/02 12:21:43 by lsohler          ###   ########.fr       */
+/*   Updated: 2024/02/09 14:51:59 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ int main() {
 	D.makeSound();
 	D.getBrain().think();
 
+	Dog dogCopy;
+
+	dogCopy = D;
+	dogCopy.makeSound();
+	dogCopy.getBrain().think();
 
 	std::cout << std::endl;
 	std::cout << "Type: " << A.getType() << std::endl;
@@ -38,4 +43,8 @@ int main() {
 	std::cout << "Type: " << D.getType() << std::endl;
 
 	std::cout << std::endl;
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	delete j;//should not create a leak
+	delete i;
 }

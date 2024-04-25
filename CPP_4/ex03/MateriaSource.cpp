@@ -6,7 +6,7 @@
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:38:29 by lsohler           #+#    #+#             */
-/*   Updated: 2024/02/02 15:12:17 by lsohler          ###   ########.fr       */
+/*   Updated: 2024/02/05 13:08:06 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ MateriaSource::MateriaSource() {
 	for (int i = 0; i < 4; i++) {
 		_materiaList[i] = nullptr;
 	}
-	std::cout << MATERIASOURCE DEFCONS << std::endl;
+	constructionMsg(MATERIASOURCE DEFCONS, MSGMODE);
+
 }
 
 MateriaSource::MateriaSource(MateriaSource const &other) {
@@ -27,7 +28,7 @@ MateriaSource::MateriaSource(MateriaSource const &other) {
 			_materiaList[i] = (other._materiaList[i])->clone();
 		}
 	}
-	std::cout << MATERIASOURCE COPYCONS << std::endl;
+	constructionMsg(MATERIASOURCE COPYCONS, MSGMODE);
 }
 
 
@@ -40,7 +41,7 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &other) {
 			}
 		}
 	}
-	std::cout << MATERIASOURCE OPECONS << std::endl;
+	constructionMsg(MATERIASOURCE OPECONS, MSGMODE);
 	return(*this);
 }
 
@@ -50,18 +51,19 @@ MateriaSource::~MateriaSource() {
 			delete _materiaList[i];
 		}
 	}
-	std::cout << MATERIASOURCE DEFDES << std::endl;
+	constructionMsg(MATERIASOURCE DEFDES, MSGMODE);
 }
 
 void	MateriaSource::learnMateria(AMateria* m) {
 	for (int i = 0; i < 4; i++) {
 		if (this->_materiaList[i] == nullptr) {
-			this->_materiaList[i] = m->clone();
-			std::cout << EQUIPED CYAN << i << RESET << std::endl; 
+			this->_materiaList[i] = m;
+			std::cout << MATERIASOURCE << BOLD GREEN << m->getType() << " " << RESET << EQUIPED CYAN << i << RESET << std::endl; 
 			return ;
 		}
 	}
-	std::cout << "Source: " INVENTORYFULL << std::endl;
+	std::cout << MATERIASOURCE INVENTORYFULL << std::endl;
+	delete m;
 }
 
 AMateria*	MateriaSource::createMateria(std::string const & type) {

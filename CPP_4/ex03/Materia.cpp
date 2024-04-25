@@ -6,7 +6,7 @@
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:25:15 by lsohler           #+#    #+#             */
-/*   Updated: 2024/02/02 14:53:13 by lsohler          ###   ########.fr       */
+/*   Updated: 2024/02/05 11:11:38 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,28 @@
 
 AMateria::AMateria() {
 	this->_type = "NoType";
-	std::cout << AMATERIA DEFCONS << std::endl;
+	constructionMsg(AMATERIA DEFCONS, MSGMODE);
 }
 
 AMateria::AMateria(std::string const &type) {
 	this->_type = type;
-	std::cout << AMATERIA DEFCONS << std::endl;
+	constructionMsg(AMATERIA DEFCONS, MSGMODE);
 }
 
 AMateria::AMateria(AMateria const &other) {
 	this->_type = other.getType();
-	std::cout << AMATERIA COPYCONS << std::endl;
+	constructionMsg(AMATERIA COPYCONS, MSGMODE);
 }
 
 AMateria::~AMateria() {
-	std::cout << AMATERIA DEFDES << std::endl;
+	constructionMsg(AMATERIA DEFDES, MSGMODE);
 }
 
 AMateria &AMateria::operator=(AMateria const &other) {
-	std::cout << AMATERIA OPECONS << std::endl;
 	if (this != &other) {
 		*this = other;
 	}
+	constructionMsg(AMATERIA OPECONS, MSGMODE);
 	return(*this);
 }
 
@@ -44,10 +44,7 @@ std::string const & AMateria::getType() const {
 	return (_type);
 }
 
-// AMateria*	AMateria::clone() const {
-// 	return (new this);
-// }
-
-// void AMateria::use(ICharacter& target) {
-	
-// }
+void AMateria::use(ICharacter& target) {
+	(void)target;
+	std::cout << VIRTUALSPELL << std::endl;
+}

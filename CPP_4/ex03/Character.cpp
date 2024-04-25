@@ -6,19 +6,19 @@
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:53:32 by lsohler           #+#    #+#             */
-/*   Updated: 2024/02/02 14:44:03 by lsohler          ###   ########.fr       */
+/*   Updated: 2024/02/05 13:14:18 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 #include "Colors.h"
 
-Character::Character() {
+Character::Character(void) {
 	this->_name = "NoName";
 	for (int i = 0; i < 4; i++) {
 		_materiaList[i] = nullptr;
 	}
-	std::cout << CHARACTER DEFCONS << std::endl;
+	constructionMsg(CHARACTER DEFCONS, MSGMODE);
 }
 
 Character::Character(std::string const &name) {
@@ -26,7 +26,7 @@ Character::Character(std::string const &name) {
 	for (int i = 0; i < 4; i++) {
 		_materiaList[i] = nullptr;
 	}
-	std::cout << CHARACTER DEFCONS << std::endl;
+	constructionMsg(CHARACTER DEFCONS, MSGMODE);
 }
 
 Character::Character(Character const &other) {
@@ -34,17 +34,7 @@ Character::Character(Character const &other) {
 	for (int i = 0; i < 4; i++) {
 		_materiaList[i] = other.getCharacterMateria(i);
 	}
-	std::cout << CHARACTER COPYCONS << std::endl;
-}
-
-Character::~Character(void) {
-	for (int i = 0; i < 4; i++) {
-		if (_materiaList[i] != nullptr){
-			delete _materiaList[i];
-		}
-	}
-	std::cout << CHARACTER DEFDES << std::endl;
-
+	constructionMsg(CHARACTER COPYCONS, MSGMODE);
 }
 
 Character &Character::operator=(Character const &other) {
@@ -57,15 +47,23 @@ Character &Character::operator=(Character const &other) {
 			_materiaList[i] = other.getCharacterMateria(i);
 		}
 	}
-	std::cout << CHARACTER OPECONS << std::endl;
+	constructionMsg(CHARACTER OPECONS, MSGMODE);
 	return(*this);
+}
+
+Character::~Character(void) {
+	for (int i = 0; i < 4; i++) {
+		if (_materiaList[i] != nullptr){
+			delete _materiaList[i];
+		}
+	}
+	constructionMsg(CHARACTER DEFDES, MSGMODE);
 }
 
 std::string const &	Character::getName(void) const {
 	return (_name);
 }
 
-//return * ou pas a avoir
 AMateria*	Character::getCharacterMateria(int i) const {
 	return (_materiaList[i]);
 }
@@ -74,20 +72,26 @@ void	Character::equip(AMateria* m) {
 	for (int i = 0; i < 4; i++) {
 		if (this->_materiaList[i] == nullptr) {
 			this->_materiaList[i] = m;
-			std::cout << EQUIPED CYAN << i << RESET << std::endl; 
+			std::cout << CHARACTER BOLD WHITE << this->getName() << ": " <<  BOLD GREEN << m->getType() << " " << RESET EQUIPED CYAN << i << RESET << std::endl; 
 			return ;
 		}
 	}
-	std::cout << INVENTORYFULL << std::endl;
+	std::cout << CHARACTER INVENTORYFULL << std::endl;
+	delete m;
 }
 
 void	Character::unequip(int idx) {
-	_materiaList[idx] = nullptr;
+	if (idx < 4 && _materiaList[idx] != nullptr) {
+		delete _materiaList[idx];
+		_materiaList[idx] = nullptr;
+		std::cout << BOLD WHITE << this->getName() << ": " << RESET DROP << std::endl;
+	}
 	
 }
 
 void	Character::use(int idx, ICharacter& target) {
-	if (_materiaList[idx] != nullptr) {
+	std::cout << BOLD WHITE << this->getName() << RESET << ": ";
+	if (idx <= 3 && _materiaList[idx] != nullptr) {
 		_materiaList[idx]->use(target);
 	}
 	else {

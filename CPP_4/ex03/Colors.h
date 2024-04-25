@@ -6,7 +6,7 @@
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 14:08:35 by lsohler           #+#    #+#             */
-/*   Updated: 2024/01/29 18:33:14 by lsohler          ###   ########.fr       */
+/*   Updated: 2024/02/05 16:42:24 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@
 #define BGBRIGHTCYAN   "\033[106m"
 #define BGBRIGHTWHITE  "\033[107m"
 
+#define MSGMODE 1
+
 #define DEFCONS GREEN  "Default Constructor called." RESET
 #define COPYCONS CYAN "Copy Constructor called." RESET
 #define OPECONS MAGENTA "Operator Constructor called." RESET
@@ -70,12 +72,24 @@
 
 #define AMATERIA BOLD WHITE "AMateria: " RESET
 #define CHARACTER BOLD YELLOW "Character: " RESET
-#define MATERIASOURCE BOLD CYAN "MateriaSource: " RESET
+#define MATERIASOURCE BOLD BLUE "MateriaSource: " RESET
 #define CURE BOLD MAGENTA "Cure: " RESET
-#define ICE BOLD BLUE "Ice: " RESET
+#define ICE BOLD CYAN "Ice: " RESET
 
 #define EQUIPED "Materia equiped at inventory slot: "
-#define INVENTORYFULL "Cannot equiped Materia invotry full."
+#define INVENTORYFULL "Cannot equipe. Materia invotry full."
 #define NOSPELL "No spell at inventory slot: "
+#define DROP "Materia dropped on the ground and destroyed itself." RESET
+
+
+#define VIRTUALSPELL BOLD BRIGHTGREEN "* do nothing *" RESET
+#define CURE1 BOLD BRIGHTMAGENTA "* Heal " RESET
+#define CURE2 BOLD BRIGHTMAGENTA "'s wounds *" RESET
+#define ICE1 BOLD BRIGHTCYAN "* Shoots an icebolt at " RESET
+#define ICE2 BOLD BRIGHTCYAN " *" RESET
+
+void	constructionMsg(std::string msg, int mode);
+void	endline(int	n);
+void	printSeparator(std::string str, std::string color);
 
 #endif

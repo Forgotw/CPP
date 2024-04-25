@@ -6,7 +6,7 @@
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 11:56:22 by lsohler           #+#    #+#             */
-/*   Updated: 2024/01/23 12:50:12 by lsohler          ###   ########.fr       */
+/*   Updated: 2024/02/05 16:21:03 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ class Dog : public Animal {
 		~Dog();
 
 		Dog &operator=(Dog const &other);
-		void makeSound(void);
+		void makeSound(void) const;
 
 };

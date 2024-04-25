@@ -6,7 +6,7 @@
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 17:48:51 by lsohler           #+#    #+#             */
-/*   Updated: 2024/01/23 14:07:49 by lsohler          ###   ########.fr       */
+/*   Updated: 2024/02/05 16:33:45 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Animal {
 	public:
 		Animal();
 		Animal(Animal const &other);
-		~Animal();
+		virtual ~Animal();
 		Animal &operator=(Animal const &other);
 
 		std::string	getType(void) const;

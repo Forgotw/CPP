@@ -6,7 +6,7 @@
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 11:56:11 by lsohler           #+#    #+#             */
-/*   Updated: 2024/02/02 12:32:36 by lsohler          ###   ########.fr       */
+/*   Updated: 2024/02/09 14:53:07 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ Cat &Cat::operator=(Cat const &other) {
 	std::cout << CAT OPECONS << std::endl;
 	if (this != &other) {
 		this->type = other.getType();
+		if (this->catBrain)
+			delete  this->catBrain;
 		this->catBrain = new Brain();
 		for (int i = 0; i < 100; i++) {
 			this->catBrain->setIdeas(other.getBrain().getIdeas(i), i);

@@ -6,7 +6,7 @@
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 11:56:19 by lsohler           #+#    #+#             */
-/*   Updated: 2024/01/23 12:50:04 by lsohler          ###   ########.fr       */
+/*   Updated: 2024/02/05 16:21:53 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ Dog &Dog::operator=(Dog const &other) {
 	return(*this);
 }
 
-void	Dog::makeSound() {
+void	Dog::makeSound() const {
 	std::cout << "Wouf" << std::endl;
 }

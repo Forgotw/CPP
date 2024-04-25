@@ -6,7 +6,7 @@
 #    By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 09:20:20 by lsohler@stu       #+#    #+#              #
-#    Updated: 2024/01/23 17:30:56 by lsohler          ###   ########.fr        #
+#    Updated: 2024/02/05 13:15:49 by lsohler          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,17 +17,17 @@ INCLUDES = -I $(CURDIR)
 
 SRC = \
 		main.cpp\
-		Animal.cpp\
-		Cat.cpp\
-		Dog.cpp\
-		Brain.cpp\
+		Colors.cpp\
+		Character.cpp\
+		Materia.cpp\
+		Cure.cpp\
+		Ice.cpp\
+		MateriaSource.cpp\
 
 #SRC_DIR = $(addprefix src/, $(SRC))
 OBJ = ${SRC:.cpp=.o}
 
-NAME = Abstract
-
-#INCLUDES = -Iinclude/
+NAME = Materia
 
 %.o: %.cpp
 	${CC} ${FLAGS} -c $< -o $@ $(INCLUDES)
