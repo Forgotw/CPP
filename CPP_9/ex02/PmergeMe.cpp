@@ -6,7 +6,7 @@
 /*   By: lsohler <lsohler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 16:44:26 by lsohler           #+#    #+#             */
-/*   Updated: 2024/04/24 19:48:34 by lsohler          ###   ########.fr       */
+/*   Updated: 2024/04/25 14:09:26 by lsohler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ PmergeMe::PmergeMe(void) {
 	std::cout << "Not implemented\n";
 }
 
-PmergeMe::PmergeMe(char **av) : _timeVector(0), _timeDeque(0), _isOdd(false),  _additionalPrint(true) {
+PmergeMe::PmergeMe(char **av) : _timeVector(0), _timeDeque(0), _isOdd(false),  _additionalPrint(false) {
 	if (av == NULL) {
 		std::cerr << "Erreur : pointeur NULL passé en argument.\n";
 		exit(1);
